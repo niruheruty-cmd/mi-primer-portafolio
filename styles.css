@@ -1,0 +1,161 @@
+/* 1. Estilos generales de la página */
+body {
+    background-color: #f0f2f5; /* Fondo gris claro y moderno */
+    color: #333333;           /* Texto gris oscuro (más suave que el negro) */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 2. Estilo para el encabezado */
+header {
+    background-color: #4f46e5; /* Color morado indigo */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* 3. Estilo para las secciones */
+section {
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* 4. Estilo para la imagen */
+img {
+    max-width: 100%;    /* Hace que la imagen no se desborde */
+    height: auto;
+    border-radius: 8px;
+}
+
+/* 5. Estilo para el enlace */
+a {
+    color: #4f46e5;
+    text-decoration: none; /* Quita el subrayado molesto */
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline; /* El subrayado vuelve solo cuando pasas el mouse */
+}
+/* Activamos Flexbox en el contenedor */
+.contenedor-flex {
+    display: flex;
+    flex-direction: row; /* Coloca los hijos en fila (uno al lado del otro) */
+    gap: 20px;          /* Espacio de separación entre las columnas */
+}
+
+/* Hacemos que cada columna ocupe el mismo espacio (50% cada una) */
+.columna {
+    flex: 1; 
+    margin: 0; /* Quitamos el margen exterior vertical que pusimos antes */
+}
+#boton-color {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#boton-color:hover {
+    background-color: #3730a3; /* Se oscurece al pasar el mouse */
+}
+#boton-agregar-hobby {
+    background-color: #10b981; /* Color verde esmeralda */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#boton-agregar-hobby:hover {
+    background-color: #059669;
+}
+/* Contenedor de la entrada de texto y el botón */
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#nueva-tarea-input {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+#boton-agregar-tarea {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#boton-agregar-tarea:hover {
+    background-color: #3730a3;
+}
+
+/* Estilos de la lista de tareas */
+#lista-tareas {
+    list-style: none;
+    padding: 0;
+}
+
+#lista-tareas li {
+    background-color: #f3f4f6;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+#lista-tareas li:hover {
+    background-color: #e5e7eb;
+}
+
+/* Clase especial para cuando se complete una tarea */
+.completada {
+    text-decoration: line-through;
+    color: #9ca3af;
+    background-color: #f9fafb !important;
+}
+
+/* Botón de eliminar dentro de la tarea */
+.btn-eliminar {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-eliminar:hover {
+    background-color: #dc2626;
+}
