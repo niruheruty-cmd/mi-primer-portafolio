@@ -113,3 +113,55 @@ if (usuario) {
     // Guardamos el nombre en LocalStorage
     localStorage.setItem("usuarioGuardado", "Nil");
 }
+// ==========================================
+// PROGRAMACIÓN DE LA APP DE CLIMA (DÍA 20)
+// ==========================================
+
+const botonClima = document.getElementById("boton-consultar-clima");
+const ciudadSelect = document.getElementById("ciudad-select");
+
+const climaCiudad = document.getElementById("clima-ciudad");
+const climaTemp = document.getElementById("clima-temp");
+const climaViento = document.getElementById("clima-viento");
+const climaEstado = document.getElementById("clima-estado");
+
+botonClima.addEventListener("click", async function() {
+    // 1. Obtenemos las coordenadas y el nombre de la ciudad seleccionada
+    const coordenadas = ciudadSelect.value.split(","); // Divide latitud y longitud
+    const lat = coordenadas[0];
+    const lon = coordenadas[1];
+    const nombreCiudad = ciudadSelect.options[ciudadSelect.selectedIndex].text;
+
+    climaEstado.textContent = "Consultando datos en la nube...";
+
+    try {
+        // 2. Hacemos la consulta a la API de Open-Meteo
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,wind_speed_10m,weather_code`;
+        const respuesta = await fetch(url);
+        const datos = await respuesta.json();
+
+        // 3. Extraemos las variables del clima actual
+        const temperatura = datos.current.temperature_2m;
+        const viento = datos.current.wind_speed_10m;
+        const codigoClima = datos.current.weather_code;
+
+        // 4. Traducimos el código de clima numérico a texto legible
+        let estadoTexto = "Despejado ☀️";
+        if (codigoClima > 0 && codigoClima <= 3) estadoTexto = "Parcialmente Nublado ⛅";
+        if (codigoClima >= 45 && codigoClima <= 48) estadoTexto = "Niebla 🌫️";
+        if (codigoClima >= 51 && codigoClima <= 67) estadoTexto = "Lluvia Ligera/Densa 🌧️";
+        if (codigoClima >= 71 && codigoClima <= 77) estadoTexto = "Nieve ❄️";
+        if (codigoClima >= 80 && codigoClima <= 82) estadoTexto = "Chubascos de Lluvia 🌦️";
+        if (codigoClima >= 95) estadoTexto = "Tormenta Eléctrica ⛈️";
+
+        // 5. Pintamos los resultados en el HTML
+        climaCiudad.textContent = nombreCiudad;
+        climaTemp.textContent = temperatura;
+        climaViento.textContent = viento;
+        climaEstado.textContent = "Clima: " + estadoTexto;
+
+    } catch (error) {
+        console.error(error);
+        climaEstado.textContent = "Error al conectar con la API.";
+    }
+});

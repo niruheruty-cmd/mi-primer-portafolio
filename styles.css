@@ -159,3 +159,59 @@ a:hover {
 .btn-eliminar:hover {
     background-color: #dc2626;
 }
+/* Estilos para la sección de clima */
+#seccion-clima {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8); /* Degradado azul */
+    color: white;
+}
+
+#seccion-clima h2 {
+    color: white;
+}
+
+.clima-control {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#ciudad-select {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: white;
+    color: #333;
+}
+
+#boton-consultar-clima {
+    background-color: #f59e0b; /* Amarillo ámbar */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#boton-consultar-clima:hover {
+    background-color: #d97706;
+}
+
+/* Resultados del clima */
+#resultado-clima {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    backdrop-filter: blur(5px); /* Efecto de cristal esmerilado */
+    transition: all 0.5s ease;
+}
+
+.temp-text {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 10px 0;
+}

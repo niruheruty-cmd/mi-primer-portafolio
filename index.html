@@ -38,6 +38,31 @@
                 <!-- Se llenará dinámicamente con JavaScript -->
             </ul>
         </section>
+                <!-- SECCIÓN DEL CLIMA (DÍA 20) -->
+        <section id="seccion-clima">
+            <h2>Clima en Tiempo Real 🌤️</h2>
+            <p>Selecciona una ciudad para consultar el clima actual en vivo:</p>
+            
+            <div class="clima-control">
+                <select id="ciudad-select">
+                    <!-- Coordenadas aproximadas de las ciudades principales -->
+                    <option value="-12.046,-77.042">Lima, Perú</option>
+                    <option value="19.432,-99.133">Ciudad de México, México</option>
+                    <option value="40.416,-3.703">Madrid, España</option>
+                    <option value="-34.603,-58.381">Buenos Aires, Argentina</option>
+                    <option value="4.711,-74.072">Bogotá, Colombia</option>
+                </select>
+                <button id="boton-consultar-clima">Consultar Clima</button>
+            </div>
+
+            <!-- Aquí se mostrarán los resultados -->
+            <div id="resultado-clima" class="resultado-oculto">
+                <h3 id="clima-ciudad">--</h3>
+                <p class="temp-text"><span id="clima-temp">--</span>°C</p>
+                <p>Viento: <span id="clima-viento">--</span> km/h</p>
+                <p id="clima-estado">Cargando...</p>
+            </div>
+        </section>
     </main>
 
         </section>
